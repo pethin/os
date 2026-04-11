@@ -1,7 +1,7 @@
 package:
   name: prometheus-alertmanager
-  version: "0.31.1"
-  epoch: 7 # GHSA-w8rr-5gcm-pp58
+  version: "0.32.0"
+  epoch: 0 # GHSA-w8rr-5gcm-pp58
   description: Prometheus Alertmanager
   copyright:
     - license: Apache-2.0
@@ -32,12 +32,11 @@ pipeline:
     with:
       repository: https://github.com/prometheus/alertmanager
       tag: v${{package.version}}
-      expected-commit: 7a639ba087d6e877038cabfdaa645230f79001b8
+      expected-commit: 685a2a1c6bb01b2c17bc1bfae995cb3416c1115e
 
   - uses: go/bump
     with:
       deps: |-
-        google.golang.org/grpc@v1.79.3
         go.opentelemetry.io/otel/sdk@v1.43.0
         go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.43.0
 
