@@ -1,7 +1,7 @@
 package:
-  name: kubernetes-1.36
-  version: "1.36.0"
-  epoch: 0 # GHSA-hfvc-g4fc-pqhx
+  name: kubernetes-1.35
+  version: "1.35.4"
+  epoch: 1 # GHSA-hfvc-g4fc-pqhx
   description: Production-Grade Container Scheduling and Management
   copyright:
     - license: Apache-2.0
@@ -22,7 +22,7 @@ environment:
       - ca-certificates-bundle
       - coreutils # needed for non busybox version of `mktemp`
       - findutils # needed for non busybox version of `xargs`
-      - go-1.26
+      - go
       - go-bindata
       - grep
       - jq
@@ -47,7 +47,7 @@ pipeline:
     with:
       repository: https://github.com/kubernetes/kubernetes
       tag: v${{package.version}}
-      expected-commit: ecf6decece6a6de25a57aad9ba90b6ce580f6f78
+      expected-commit: 7b8c6cf0edd376b3d7c2f255142977c7f93db258
 
   - uses: go/bump
     with:
@@ -555,7 +555,7 @@ update:
   enabled: true
   git:
     strip-prefix: v
-    tag-filter-prefix: v1.36.
+    tag-filter-prefix: v1.35.
 
 test:
   environment:

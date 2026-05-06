@@ -1,16 +1,13 @@
 package:
   name: flux-image-automation-controller
   version: "1.1.2"
-  epoch: 2 # go/wolfi-rsc/flux-image-automation-controller
+  epoch: 1 # GHSA-mh2q-q3fh-2475
   description: GitOps Toolkit controller that patches container image tags in Git
   copyright:
     - license: Apache-2.0
   resources:
-    cpu: "6"
-    memory: 12Gi
-  test-resources:
-    cpu: "1"
-    memory: 1Gi
+    cpu: "9"
+    memory: 17Gi
 
 var-transforms:
   - from: ${{package.version}}

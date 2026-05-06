@@ -1,6 +1,6 @@
 package:
   name: cluster-api-azure-controller
-  version: "1.24.0"
+  version: "1.23.1"
   epoch: 0 # GHSA-hfvc-g4fc-pqhx
   description: Cluster API implementation for Microsoft Azure
   copyright:
@@ -17,7 +17,13 @@ pipeline:
     with:
       repository: https://github.com/kubernetes-sigs/cluster-api-provider-azure
       tag: v${{package.version}}
-      expected-commit: f69aa53f2f92c627240e3e162b631cf5c8197d07
+      expected-commit: dbeb413f98e6abd9e19cbe0e1212beae94aaff10
+
+  - uses: go/bump
+    with:
+      deps: |-
+        golang.org/x/net@v0.51.0
+      modroot: hack/tools
 
   - uses: go/build
     with:
