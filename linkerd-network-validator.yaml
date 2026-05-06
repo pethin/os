@@ -1,7 +1,7 @@
 package:
   name: linkerd-network-validator
-  version: "0.1.8"
-  epoch: 7 # GHSA-82j2-j2ch-gfr8
+  version: "0.1.9"
+  epoch: 0 # GHSA-82j2-j2ch-gfr8
   description: "A program that validates linkerd networks"
   copyright:
     - license: Apache-2.0
@@ -20,7 +20,7 @@ pipeline:
     with:
       repository: https://github.com/linkerd/linkerd2-proxy-init
       tag: validator/v${{package.version}}
-      expected-commit: 537fb96717d06a5a4639c04b378b97bc645e9834
+      expected-commit: 2753485ad694588c12b44406d7734f9f8e8c834d
 
   - uses: rust/cargobump
 
