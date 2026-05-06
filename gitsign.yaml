@@ -1,6 +1,6 @@
 package:
   name: gitsign
-  version: "0.16.0"
+  version: "0.15.1"
   epoch: 0 # GHSA-3xc5-wrhm-f963
   description: Keyless Git signing with Sigstore!
   copyright:
@@ -24,7 +24,7 @@ pipeline:
     with:
       repository: https://github.com/sigstore/gitsign/
       tag: v${{package.version}}
-      expected-commit: 3c84d87240644b5c62b3b3d79177ae64448591c8
+      expected-commit: bf96ce6165b1bc1196c220b7a983efbdc290aa12
 
   - uses: go/build
     with:
