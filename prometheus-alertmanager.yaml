@@ -43,14 +43,20 @@ pipeline:
       git diff
 
   # alertmanager 0.32.0 introduced a vite/elm UI build that hangs
-  # indefinitely in melange's QEMU runner: vite-plugin-elm spawns
-  # `elm make` and never returns output, exhausting the 3h CI timeout
-  # regardless of memory size or vite version. The same source builds
-  # in ~22s outside melange (verified with chainguard wolfi-base + npm
-  # locally). Until that's fixed, recover the dist files from upstream's
-  # released binary, which embeds the compiled UI via go:embed: run
-  # the binary briefly as an HTTP server and crawl the routes
-  # registered in ui/web.go. UI dist is byte-identical across arches.
+  # indefinitely in melange's QEMU runner. Root cause: elm 0.19.1's
+  # Haskell HTTP client has no timeout, and its first action is to
+  # fetch https://package.elm-lang.org/all-packages to verify the
+  # registry. From elastic-pre-a's network the SYN to that host is
+  # silently dropped (no RST), so the kernel keeps retransmitting and
+  # elm waits forever — the build hits the 3h CI timeout. Reproduces
+  # locally with `iptables -A OUTPUT -d <pkg.elm-lang IP> -j DROP`;
+  # vanishes if the host is reachable or refuses fast. Until the egress
+  # path to package.elm-lang.org is fixed, recover the compiled UI from
+  # upstream's released binary (which embeds it via go:embed): run the
+  # binary briefly as an HTTP server and crawl the routes registered in
+  # ui/web.go. UI dist is byte-identical across arches; the recovered
+  # bytes are static HTML/CSS/JS/fonts and the alertmanager binary we
+  # ship is still built from source.
   - name: Recover prebuilt UI dist from upstream binary
     runs: |
       set -eu
@@ -75,7 +81,7 @@ pipeline:
               --web.listen-address=127.0.0.1:9094 --cluster.listen-address="" \
               > /tmp/am.log 2>&1 &
       AMPID=$!
-      trap 'kill "${AMPID}" 2>/dev/null || true' EXIT
+      trap 'kill "${AMPID}" 2>/dev/null || true; wait "${AMPID}" 2>/dev/null || true' EXIT INT TERM
       for _ in $(seq 1 30); do
         curl -sf http://127.0.0.1:9094/-/ready >/dev/null 2>&1 && break
         sleep 1
@@ -118,6 +124,14 @@ pipeline:
             ;;
         esac
       done
+
+      # Sanity-check the recovered dist. If upstream changes the asset
+      # path prefix or the discovery regex misses something, we'd
+      # otherwise silently ship a broken UI; fail the build instead.
+      test -s "${DIST}/index.html.gz"  || { echo "FATAL: ${DIST}/index.html.gz empty/missing"; exit 1; }
+      test -s "${DIST}/favicon.ico.gz" || { echo "FATAL: ${DIST}/favicon.ico.gz empty/missing"; exit 1; }
+      js_count=$(find "${DIST}/assets" -name '*.js.gz' -type f | wc -l)
+      [ "${js_count}" -ge 1 ] || { echo "FATAL: no .js.gz assets recovered under ${DIST}/assets"; exit 1; }
 
       # ui-elm is no longer needed since dist is in place; drop the
       # dependency from the build target so make doesn't rerun it.
