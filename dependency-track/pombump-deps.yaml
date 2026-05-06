@@ -6,7 +6,7 @@ patches:
     type: jar
   - groupId: org.postgresql
     artifactId: postgresql
-    version: 42.6.1
+    version: 42.7.11
     scope: import
     type: jar
   - groupId: com.nimbusds
