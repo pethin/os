@@ -1,7 +1,7 @@
 package:
   name: cert-manager-istio-csr
   version: "0.16.0"
-  epoch: 6 # GHSA-9gcg-w975-3rjh
+  epoch: 7 # GHSA-fgw5-hp8f-xfhc
   description: istio-csr is an agent that allows for Istio workload and control plane components to be secured using cert-manager.
   copyright:
     - license: Apache-2.0
@@ -16,11 +16,17 @@ pipeline:
   - uses: go/bump
     with:
       deps: |-
-        google.golang.org/grpc@v1.79.3
         github.com/go-jose/go-jose/v4@v4.1.4
         go.opentelemetry.io/otel/sdk@v1.43.0
         github.com/moby/spdystream@v0.5.1
-        istio.io/istio@v0.0.0-20260403004500-692e460c342d
+        istio.io/api@v1.30.0-alpha.1
+        istio.io/istio@v0.0.0-20260410004459-189832a289c1
+        k8s.io/utils@v0.0.0-20260319190234-28399d86e0b5
+        google.golang.org/grpc@v1.79.3
+        k8s.io/api@v0.35.3
+        k8s.io/apimachinery@v0.35.3
+        k8s.io/cli-runtime@v0.35.3
+        k8s.io/client-go@v0.35.3
 
   - uses: go/build
     with:
