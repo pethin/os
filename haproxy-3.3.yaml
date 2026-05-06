@@ -1,6 +1,6 @@
 package:
   name: haproxy-3.3
-  version: "3.3.9"
+  version: "3.3.8"
   epoch: 0 # go/wolfi-rsc/haproxy-3.3
   description: "A TCP/HTTP reverse proxy for high availability environments"
   copyright:
@@ -46,7 +46,7 @@ pipeline:
     with:
       repository: https://git.haproxy.org/git/haproxy-${{vars.major-minor-version}}.git
       tag: v${{package.version}}
-      expected-commit: aa6f85a2f5d72a48643b790d75a5e3ccfbbbc0b2
+      expected-commit: 75f414f92857ca5922c33767818c69b733cb4afe
 
   - uses: autoconf/make
     with:
