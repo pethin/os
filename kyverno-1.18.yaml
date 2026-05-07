@@ -1,7 +1,7 @@
 package:
-  name: kyverno-1.17
-  version: "1.17.2"
-  epoch: 1 # GHSA-fpjq-c37h-cqcv
+  name: kyverno-1.18
+  version: "1.18.0"
+  epoch: 0 # GHSA-fpjq-c37h-cqcv
   description: Kubernetes Native Policy Management
   copyright:
     - license: Apache-2.0
@@ -27,13 +27,13 @@ environment:
       - busybox
       - ca-certificates-bundle
       - git
-      - go-1.25
+      - go-1.26
       - wolfi-baselayout
 
 pipeline:
   - uses: git-checkout
     with:
-      expected-commit: f64c0f5820a022d354c77316785d08511d2a5cc4
+      expected-commit: 78e7560a5531fda5a39ffb119d7d8e47527d8aee
       repository: https://github.com/kyverno/kyverno
       tag: v${{package.version}}
 
@@ -199,7 +199,7 @@ update:
   github:
     identifier: kyverno/kyverno
     strip-prefix: v
-    tag-filter: v1.17.
+    tag-filter: v1.18.
 
 test:
   environment:
