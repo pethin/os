@@ -1,7 +1,7 @@
 package:
   name: aws-load-balancer-controller
   version: "3.3.0"
-  epoch: 0 # use go-1.25, fix ldflags, fix symlink, add RBAC
+  epoch: 1 # use go-1.25, fix ldflags, fix symlink, add RBAC
   description: A Kubernetes controller for Elastic Load Balancers
   resources:
     cpu: "4"
