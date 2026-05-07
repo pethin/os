@@ -1,6 +1,6 @@
 package:
   name: malcontent
-  version: "1.23.0"
+  version: "1.23.1"
   epoch: 0
   description: enumerate file capabilities, including malicious behaviors
   copyright:
@@ -23,7 +23,7 @@ pipeline:
     with:
       repository: https://github.com/chainguard-dev/malcontent
       tag: v${{package.version}}
-      expected-commit: 00b9cb2fa48d64a93d0fe78cedc654bde553c5e8
+      expected-commit: f3436b221d1171ab9241a6d406b1d9a1887fbf02
 
   - uses: go/build
     with:
