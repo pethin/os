@@ -1,6 +1,6 @@
 package:
   name: renovate
-  version: "43.168.5"
+  version: "43.168.6"
   epoch: 0
   description: "Automated dependency updates. Multi-platform and multi-language."
   copyright:
@@ -39,7 +39,7 @@ pipeline:
     with:
       repository: https://github.com/renovatebot/renovate
       tag: ${{package.version}}
-      expected-commit: 3e10206c467b9ee9336eeb7471f8bf5aa2d92d62
+      expected-commit: 6221de715b58d323e9dd246addb40656b95a4a83
 
   - runs: |
       sed -i 's/"version": "0.0.0-semantic-release"/"version": "${{package.version}}"/' package.json
