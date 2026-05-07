@@ -1,7 +1,7 @@
 package:
   name: tflint
   version: "0.62.0"
-  epoch: 0 # GHSA-xm5m-wgh2-rrg3
+  epoch: 1 # GHSA-xm5m-wgh2-rrg3
   description: A Pluggable Terraform Linter
   copyright:
     - license: MPL-2.0
