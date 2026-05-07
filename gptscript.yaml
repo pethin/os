@@ -1,7 +1,7 @@
 package:
   name: gptscript
   version: "0.9.9"
-  epoch: 105 # Fixes GHSA-3xc5-wrhm-f963
+  epoch: 106 # Fixes GHSA-3xc5-wrhm-f963
   description: Develop LLM Apps in Natural Language
   copyright:
     - license: Apache-2.0
