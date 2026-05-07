@@ -1,6 +1,6 @@
 package:
   name: go-1.25
-  version: "1.25.10"
+  version: "1.25.9"
   epoch: 0
   description: "the Go programming language"
   copyright:
@@ -31,13 +31,14 @@ pipeline:
     with:
       repository: https://github.com/golang/go
       tag: go${{package.version}}
-      expected-commit: 5053df5b6ff006dfc96df442fddddee49f5250eb
+      expected-commit: 7076e01d9d450bae9f25be76f45d58cc52e2aad2
 
   - uses: patch
     with:
       patches: |
         cmd-go-always-emit-ldflags-version-information.patch
         change-default-telemetry-from-local-to-off.patch
+        use-gnu-ld-arm64.patch
 
   - runs: |
       cd src

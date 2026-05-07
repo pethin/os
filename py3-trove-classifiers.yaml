@@ -1,6 +1,6 @@
 package:
   name: py3-trove-classifiers
-  version: "2026.5.7.17"
+  version: "2026.4.28.13"
   epoch: 0 # go/wolfi-rsc/py3-trove-classifiers
   description: Canonical source for classifiers on PyPI (pypi.org).
   copyright:
@@ -40,7 +40,7 @@ pipeline:
   - uses: git-checkout
     with:
       repository: https://github.com/pypa/trove-classifiers
-      expected-commit: a1105aa00670c8fc241e0bc2149a236b8be43b7a
+      expected-commit: eca370658f6e81c8911567eab8209aaca2924493
       tag: ${{package.version}}
 
 subpackages:
