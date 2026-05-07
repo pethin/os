@@ -1,7 +1,7 @@
 package:
   name: tailscale
   version: "1.96.4"
-  epoch: 2 # go/wolfi-rsc/tailscale
+  epoch: 3 # go/wolfi-rsc/tailscale
   description: The easiest, most secure way to use WireGuard and 2FA.
   copyright:
     - license: BSD-3-Clause
