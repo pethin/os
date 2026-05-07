@@ -1,7 +1,7 @@
 package:
   name: mongo-tools
   version: "100.16.1"
-  epoch: 0 # CVE-2026-27140
+  epoch: 1 # CVE-2026-27140
   description: Tools for MongoDB
   copyright:
     - license: Apache-2.0
