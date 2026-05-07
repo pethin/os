@@ -1,6 +1,6 @@
 package:
   name: linux-headers
-  version: "7.0.3"
+  version: "7.0.4"
   epoch: 0 # go/wolfi-rsc/linux-headers
   description: "the Linux kernel headers (cross compilation)"
   copyright:
@@ -26,7 +26,7 @@ pipeline:
     with:
       repository: https://github.com/gregkh/linux
       tag: v${{package.version}}
-      expected-commit: 03e81f004d7e665e7c0e203c2f240abefbb79056
+      expected-commit: 7e95b21b3c5177b34c86c46e3128bd3a7311429f
 
   - runs: |
       make mrproper
