@@ -1,7 +1,7 @@
 package:
   name: atuin
   version: "18.15.2"
-  epoch: 3 # GHSA-cq8v-f236-94qc
+  epoch: 4 # GHSA-2p6r-x3vv-xqm2
   description: Magical shell history
   copyright:
     - license: MIT

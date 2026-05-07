@@ -23,3 +23,5 @@ packages:
     version: 1.0.3
   - name: rand
     version: 0.8.6
+  - name: rpassword
+    version: 7.5.0
