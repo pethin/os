@@ -1,7 +1,7 @@
 package:
   name: bento
   version: "1.17.0"
-  epoch: 3 # go/wolfi-rsc/bento
+  epoch: 4 # go/wolfi-rsc/bento
   description: Bento is a high performance and resilient stream processor, able to connect various sources and sinks in a range of brokering patterns and perform hydration, enrichments, transformations and filters on payloads.
   copyright:
     - license: MIT
@@ -19,7 +19,7 @@ pipeline:
       repository: https://github.com/warpstreamlabs/bento
       tag: v${{package.version}}
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         golang.org/x/crypto@v0.45.0
@@ -27,7 +27,7 @@ pipeline:
       modroot: resources/plugin_example
       tidy: false
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         github.com/opencontainers/runc@v1.2.8
