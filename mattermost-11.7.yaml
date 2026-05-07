@@ -1,8 +1,8 @@
 package:
-  name: mattermost-11.6
+  name: mattermost-11.7
   # Note the npm version has been pinned to 10.8.3 to avoid the error:
   # "npm error notsup Required: {"node":">=18.10.0","npm":"^9.0.0 || ^10.0.0"}"
-  version: "11.6.1"
+  version: "11.7.0"
   epoch: 0 # CVE-2026-27143
   description: "Mattermost is an open source platform for secure collaboration across the entire software development lifecycle."
   copyright:
@@ -44,7 +44,7 @@ pipeline:
     with:
       repository: https://github.com/mattermost/mattermost
       tag: v${{package.version}}
-      expected-commit: ffee10a61081dcc058f92fe65ba138804c3ca73b
+      expected-commit: a9e574a82633915f22071f0d7ca2b006f249ec2a
 
   - uses: go/bump
     with:
@@ -149,7 +149,7 @@ update:
   enabled: true
   git:
     strip-prefix: v
-    tag-filter-prefix: v11.6
+    tag-filter-prefix: v11.7
 
 test:
   environment:
