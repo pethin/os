@@ -1,7 +1,7 @@
 package:
   name: percona-server-mongodb-operator
   version: "1.22.0"
-  epoch: 14 # GHSA-pjcq-xvwq-hhpj
+  epoch: 15 # GHSA-pjcq-xvwq-hhpj
   description: Kubernetes Operator which deploys and manages Percona Server for MongoDB on Kubernetes clusters.
   copyright:
     - license: Apache-2.0
