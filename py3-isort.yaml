@@ -1,15 +1,18 @@
 package:
   name: py3-isort
   version: "8.0.1"
-  epoch: 0 # go/wolfi-rsc/py3-isort
+  epoch: 1 # go/wolfi-rsc/py3-isort
   description: A Python utility / library to sort imports.
   copyright:
     - license: MIT
   dependencies:
     provider-priority: 0
   resources:
-    cpu: "15"
+    cpu: "2"
     memory: 8Gi
+  test-resources:
+    cpu: "1"
+    memory: 1Gi
 
 vars:
   pypi-package: isort
