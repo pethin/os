@@ -24,7 +24,7 @@ pipeline:
       expected-commit: f489b4dd03274d3ebd123622735287c108b9cee4
       tag: v${{package.version}}
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         google.golang.org/grpc@v1.79.3
