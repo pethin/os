@@ -1,13 +1,15 @@
 package:
   name: deno
   version: "2.7.14"
-  epoch: 2 # GHSA-xp3w-r5p5-63rr
+  epoch: 3 # go/wolfi-rsc/deno
   description: "A modern runtime for JavaScript and TypeScript."
   copyright:
     - license: MIT
   resources:
     cpu: "22"
     memory: 36Gi
+  test-resources:
+    cpu: "1"
 
 environment:
   contents:
