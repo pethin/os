@@ -1,7 +1,7 @@
 # Generated from https://github.com/sidekiq/sidekiq
 package:
   name: ruby3.4-sidekiq
-  version: "8.1.3"
+  version: "8.1.4"
   epoch: 0
   description: Simple, efficient background processing for Ruby.
   copyright:
@@ -29,7 +29,7 @@ environment:
 pipeline:
   - uses: git-checkout
     with:
-      expected-commit: 52a08748a39030aa22e73861e1fd1bbc60bf3dea
+      expected-commit: 28b37b722c58d89593620c3733d3dcd87f6e6e08
       repository: https://github.com/sidekiq/sidekiq
       tag: v${{package.version}}
 
