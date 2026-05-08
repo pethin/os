@@ -1,6 +1,6 @@
 package:
   name: py3-narwhals
-  version: "2.19.0"
+  version: "2.21.0"
   epoch: 0
   description: Lightweight and extensible compatibility layer between dataframe libraries
   copyright:
@@ -31,7 +31,7 @@ pipeline:
     with:
       repository: https://github.com/narwhals-dev/narwhals
       tag: v${{package.version}}
-      expected-commit: 61517f8b644c1404bc6bac477e9eeadc6e45cd98
+      expected-commit: 14294a517a37c2147e096c316f51ce3de64b13a4
 
 subpackages:
   - range: py-versions
