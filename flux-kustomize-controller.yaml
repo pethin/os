@@ -42,13 +42,13 @@ pipeline:
       repository: https://github.com/fluxcd/kustomize-controller
       tag: v${{package.version}}
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         golang.org/x/net@v0.51.0
       modroot: api
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         filippo.io/edwards25519@v1.1.1
