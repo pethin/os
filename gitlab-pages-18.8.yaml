@@ -1,7 +1,7 @@
 package:
   name: gitlab-pages-18.8
   version: "18.8.9"
-  epoch: 1 # CVE-2026-32280
+  epoch: 2 # CVE-2026-32280
   description: GitLab Pages daemon used to serve static websites for GitLab users.
   copyright:
     - license: MIT
@@ -31,7 +31,7 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: ced22f4bc9e159f1326e42d7a54db92704bf4ff3
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         google.golang.org/api@v0.155.0
