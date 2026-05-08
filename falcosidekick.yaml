@@ -21,7 +21,7 @@ pipeline:
       repository: https://github.com/falcosecurity/falcosidekick
       tag: ${{package.version}}
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         google.golang.org/grpc@v1.79.3
