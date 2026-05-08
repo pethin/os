@@ -14,3 +14,6 @@ patches:
   - groupId: org.postgresql
     artifactId: postgresql
     version: 42.7.11
+  - groupId: io.netty
+    artifactId: netty-codec-http
+    version: 4.1.133.Final
