@@ -2,7 +2,7 @@
 package:
   name: gn
   version: "0.0_git20260508"
-  epoch: 2
+  epoch: 3
   description: "Meta-build system that generates build files for Ninja"
   copyright:
     - license: BSD-3-Clause
@@ -26,7 +26,7 @@ pipeline:
     with:
       repository: https://gn.googlesource.com/gn.git
       branch: main
-      expected-commit: 7a518ce016ce1f42d25c09bb836a53aacfbb2a0c
+      expected-commit: 78e67afc82faf52b2f7025265d412fd7418d88c2
 
   - runs: |
       python${{vars.python-version}} build/gen.py
