@@ -2,7 +2,7 @@
 package:
   name: go-discover
   version: "0_git20260413"
-  epoch: 0 # CVE-2026-32280
+  epoch: 1 # GHSA-mh2q-q3fh-2475
   description: go-discover is a Go (golang) library and command line tool to discover ip addresses of nodes in cloud environments based on meta information like tags provided by the environment.
   copyright:
     - license: MPL-2.0
@@ -17,10 +17,15 @@ pipeline:
       expected-commit: af02dbc355bc5f4b35044742b3618dcbd6426bdb
       branch: master
 
+  - uses: bump
+    with:
+      deps: go.opentelemetry.io/otel@v1.41.0
+
   - uses: go/build
     with:
       output: discover
       packages: ./cmd/discover
+      go-package: go-1.26
 
 update:
   enabled: true
@@ -64,4 +69,4 @@ test:
 environment:
   contents:
     packages:
-      - go-1.25
+      - go-1.26
