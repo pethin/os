@@ -1,13 +1,16 @@
 package:
   name: fq
   version: "0.17.0"
-  epoch: 5 # GHSA-77fj-vx54-gvh7
+  epoch: 6 # go/wolfi-rsc/fq
   description: "jq for binary formats - tool, language and decoders for working with binary and text formats"
   copyright:
     - license: MIT
   resources:
     cpu: "1"
-    memory: 2Gi
+    memory: 5Gi
+  test-resources:
+    cpu: "1"
+    memory: 4Gi
 
 pipeline:
   - uses: git-checkout
