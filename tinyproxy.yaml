@@ -1,7 +1,7 @@
 #nolint:valid-pipeline-git-checkout-commit,valid-pipeline-git-checkout-tag
 package:
   name: tinyproxy
-  version: "1.11.2_git20260430"
+  version: "1.11.2_git20260507"
   epoch: 0
   description: A light-weight HTTP/HTTPS proxy daemon for POSIX operating systems
   copyright:
@@ -30,7 +30,7 @@ environment:
 pipeline:
   - uses: git-checkout
     with:
-      expected-commit: e79c25505928a2253b731bc46cbfc1848165833d
+      expected-commit: 364cdb67e0ea00a8e4a7037e2693e0711e816adb
       repository: https://github.com/tinyproxy/tinyproxy
       branch: master
 
