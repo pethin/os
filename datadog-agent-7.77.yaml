@@ -3,10 +3,12 @@ package:
   # This package has two git checkouts. For each new release, the commit SHA for
   # DataDog/integrations-core must also be updated.
   version: "7.77.3"
-  epoch: 6
+  epoch: 7
   description: "Collect events and metrics from your hosts that send data to Datadog."
   copyright:
     - license: Apache-2.0
+  options:
+    no-provides: true
   resources:
     cpu: 16
     memory: 32Gi
@@ -25,6 +27,7 @@ package:
       - shadow
     provides:
       - datadog-agent=${{package.full-version}}
+      - so:libdatadog-agent-rtloader.so.2=2
 
 capabilities:
   add:
@@ -706,6 +709,8 @@ subpackages:
         - coreutils
         - findutils
         - python-${{vars.python-version}}-base
+    options:
+      no-provides: true
     pipeline:
       - working-directory: /home/integrations
         pipeline:
@@ -789,6 +794,15 @@ subpackages:
               # Install virtual environment
               mkdir -p ${{targets.contextdir}}${{vars.destd}}/embedded
               cp -r .venv/* ${{targets.contextdir}}${{vars.destd}}/embedded/
+
+              # Replace upstream's hardcoded sqlserver odbcinst.ini (which
+              # pins a specific libmsodbcsql SO) with a symlink to the file
+              # msodbcsql18-datadog-agent-compat ships at runtime.
+              sqlserver_odbc="${{targets.contextdir}}${{vars.destd}}/embedded/lib/python${{vars.python-version}}/site-packages/datadog_checks/sqlserver/data/driver_config/odbcinst.ini"
+              if [ -f "$sqlserver_odbc" ]; then
+                rm -f "$sqlserver_odbc"
+                ln -sf /opt/datadog-agent/embedded/msodbcsql/etc/odbcinst.ini "$sqlserver_odbc"
+              fi
 
               # this is intentionally referencing the main package, since we only "install" if a config doesn't already exist
               conf_dir="${{targets.destdir}}/etc/datadog-agent/conf.d"
