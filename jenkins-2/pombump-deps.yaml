@@ -11,3 +11,6 @@ patches:
   - groupId: tools.jackson.core
     artifactId: jackson-core
     version: 3.1.1
+  - groupId: org.apache.mina
+    artifactId: mina-core
+    version: 2.2.6
