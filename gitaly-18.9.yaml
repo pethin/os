@@ -46,7 +46,7 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: 593f610a4c6126e0931e27872132c17da55d0072
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         github.com/go-git/go-git/v5@v5.18.0
