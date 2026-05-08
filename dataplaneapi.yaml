@@ -25,7 +25,7 @@ pipeline:
       destination: dataplaneapi
       expected-commit: a7ea355c0fe3b6fe88e4cc358f55763e325a57da
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         google.golang.org/grpc@v1.79.3
