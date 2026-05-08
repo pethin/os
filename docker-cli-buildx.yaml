@@ -21,7 +21,7 @@ pipeline:
       tag: v${{package.version}}
       expected-commit: f7897eba028583e0071642db3c011e860444f8cf
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         github.com/moby/spdystream@v0.5.1
