@@ -41,7 +41,7 @@ pipeline:
       tag: v${{package.version}}
       recurse-submodules: true
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         google.golang.org/grpc@v1.79.3
