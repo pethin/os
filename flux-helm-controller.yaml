@@ -25,7 +25,7 @@ pipeline:
       repository: https://github.com/fluxcd/helm-controller
       tag: v${{package.version}}
 
-  - uses: go/bump
+  - uses: bump
     with:
       deps: |-
         google.golang.org/grpc@v1.79.3
