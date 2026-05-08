@@ -1,16 +1,16 @@
 package:
   name: kubescape-operator
   version: "0.2.141"
-  epoch: 0 # GHSA-gj49-89wh-h4gj
+  epoch: 1 # go/wolfi-rsc/kubescape-operator
   description: Kubescape-Operator is an in-cluster component of the Kubescape security platform.
   copyright:
     - license: Apache-2.0
   resources:
     cpu: "2"
-    memory: 8Gi
+    memory: 11Gi
   test-resources:
     cpu: "1"
-    memory: 3Gi
+    memory: 1Gi
 
 pipeline:
   - uses: git-checkout
